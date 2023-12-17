@@ -1,0 +1,31 @@
+result = []
+
+def divider(a, b):
+    try:
+        if a < b:
+            raise ValueError("a повинно бути більше або дорівнювати b")
+        if b > 100:
+            raise IndexError("b повинно бути менше або дорівнювати 100")
+        if b == 0:
+            raise ZeroDivisionError("ділення на нуль не допускається")
+        return a / b
+    except ValueError as ve:
+        print(f"Помилка значення: {ve}")
+        return None
+    except IndexError as ie:
+        print(f"Помилка індексу: {ie}")
+        return None
+    except ZeroDivisionError as zde:
+        print(f"Помилка ділення на нуль: {zde}")
+        return None
+    except Exception as e:
+        print(f"Виникла неочікувана помилка: {e}")
+        return None
+
+data = {10: 2, 2: 5, "123": 4, 18: 0, (): 15, 8: 4}  # Замінивши [] на () як ключ
+
+for key in data:
+    res = divider(key, data[key])
+    result.append(res)
+
+print(result)
